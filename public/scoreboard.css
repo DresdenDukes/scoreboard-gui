@@ -1,0 +1,89 @@
+.button {
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+    padding: 0.9em;
+    margin: 0.7em;
+    font-weight: bold;
+    border-radius: 0.5em;
+}
+.area {
+    display: flow-root;
+    margin: 0.5em;
+}
+
+#scoreboard {
+    width: 95%;
+    height: 95%;
+}
+
+.number {
+    font-size: xx-large;
+}
+
+.plusButton {
+    background-color: green;
+    float:left;
+}
+
+.minusButton {
+    float:left;
+    background-color: lightcoral;
+}
+
+#guest, #out {
+    position: relative;
+    top: -6em;
+    float: right;
+}
+#out {
+    top: -12em;
+}
+
+#inning, #strikes, #reset {
+    position: relative;
+    top: -6em;
+    left: 40%;
+}
+#reset {
+    top: -10em;
+}
+
+#clockMode {
+    font-size: xx-large;
+    background-color: #0c1754;
+    padding-right: 1.4em;
+    padding-bottom: 1.4em;
+}
+
+#resetButton {
+    font-size: xx-large;
+    background-color: red;
+    padding-right: 1.2em;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+/* from https://css-loaders.com/ */
+.loader {
+    --d:22px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    color: #d8e74e;
+    box-shadow: 
+      calc(1*var(--d))      calc(0*var(--d))     0 0,
+      calc(0.707*var(--d))  calc(0.707*var(--d)) 0 1px,
+      calc(0*var(--d))      calc(1*var(--d))     0 2px,
+      calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 3px,
+      calc(-1*var(--d))     calc(0*var(--d))     0 4px,
+      calc(-0.707*var(--d)) calc(-0.707*var(--d))0 5px,
+      calc(0*var(--d))      calc(-1*var(--d))    0 6px;
+    animation: l27 1s infinite steps(8);
+}
+@keyframes l27 {
+100% {transform: rotate(1turn)}
+}
