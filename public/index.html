@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scoreboard</title>
+        <meta charset="utf-8">
+        <link rel="apple-touch-startup-image" href="/img/applaunch.png">
+        <meta name="apple-mobile-web-app-title" content="Scoreboard">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="manifest" href="manifest.json">
+        <link rel="stylesheet" href="scoreboard.css">
+        <script type="text/javascript" src="lib/jquery.min.js"></script>
+        <script type="text/javascript" src="config.js"></script>
+        <script type="text/javascript" src="scoreboard.js"></script>
+    </head>
+    <body>
+        <div id="scoreboard">
+            <div id="home" class="area">
+                <div>Home: <span id="homeScore" class="number">0</span></div>
+                <div id="homePlus" class="button plusButton"  onclick="add('#homeScore', this)">+</div>
+                <div id="homeMinus" class="button minusButton" onclick="substract('#homeScore', this)">-</div>
+            </div>
+            <div id="guest" class="area">
+                <div>Guest: <span id="guestScore" class="number">0</span></div>
+                <div id="guestPlus" class="button plusButton" onclick="add('#guestScore', this)">+</div>
+                <div id="guestMinus" class="button minusButton" onclick="substract('#guestScore', this)">-</div>
+            </div>
+            <div id="inning" class="area">
+                <div>Inning: <span id="inningCount" class="number">0</span></div>
+                <div id="inningPlus" class="button plusButton" onclick="add('#inningCount', this)">+</div>
+                <div id="inningMinus" class="button minusButton" onclick="substract('#inningCount', this)">-</div>
+            </div>
+
+            <div id="balls" class="area">
+                <div>Balls <span id="ballCount" class="number">0</span></div>
+                <div id="ballsPlus" class="button plusButton" onclick="add('#ballCount', this)">+</div>
+                <div id="ballsMinus" class="button minusButton" onclick="substract('#ballCount', this)">-</div>
+            </div>
+            <div id="strikes" class="area">
+                <div>Strikes <span id="strikeCount" class="number">0</span></div>
+                <div id="strikesPlus" class="button plusButton" onclick="add('#strikeCount', this)">+</div>
+                <div id="strikesMinus" class="button minusButton" onclick="substract('#strikeCount', this)">-</div>
+            </div>
+            <div id="out" class="area">
+                <div>Out <span id="outCount" class="number">0</span></div>
+                <div id="outPlus" class="button plusButton" onclick="add('#outCount', this)">+</div>
+                <div id="outMinus" class="button minusButton" onclick="substract('#outCount', this)">-</div>
+            </div>
+
+            <div class="area">
+                <div>clock mode</div>
+                <div id="clockMode" class="button" onclick="updateScoreboard('#clockMode', '🕑', this)">🕑</div>
+            </div>
+
+            <div id="reset" class="area">
+                <div>reset Board</div>
+                <div id="resetButton" class="button" onclick="updateScoreboard('#resetButton', '0:0', this)">0:0</div>
+            </div>
+        </div>
+    </body>
+</html>
