@@ -35,6 +35,12 @@ function updateScoreboard(id, newCount, button) {
             apiCall = "/set/strikes/" + newCount;
             break;
 
+        case '#nextbatterButton':
+            updateScoreboard('#ballCount', 0, button)
+            updateScoreboard('#strikeCount', 0, button)
+            apiCall = "/nextbatter";
+            break;
+
         case '#outCount':
             apiCall = "/set/outs/" + newCount;
             break;
@@ -58,6 +64,7 @@ function updateScoreboard(id, newCount, button) {
     $(button).css("pointerEvents","none");
     var oldText = $(button).text();
     var oldBackground = $(button).css('background-color');
+    console.log('oldBackground: ' + oldBackground);
     $(button).css('background-color', 'inherit');
     $(button).html('<div class="loader"></div>');
     $.ajax({

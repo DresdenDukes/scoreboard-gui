@@ -31,7 +31,7 @@
     background-color: lightcoral;
 }
 
-#guest, #out {
+#guest, #out, #nextbatter {
     position: relative;
     top: -6em;
     float: right;
@@ -39,6 +39,9 @@
 }
 #out {
     top: -13em;
+}
+#nextbatter {
+    top: -21em;
 }
 
 #inning, #strikes, #reset {
@@ -62,6 +65,13 @@
     font-size: xx-large;
     background-color: red;
     padding-right: 1.2em;
+}
+
+#nextbatterButton {
+    font-size: xx-large;
+    background-color: rgb(161, 161, 4);
+    padding-right: 3.3em;
+    white-space: nowrap;
 }
 
 body {
