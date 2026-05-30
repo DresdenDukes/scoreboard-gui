@@ -1,3 +1,38 @@
+function applyState(state) {
+    if (state.home != null) $('#homeScore').text(state.home);
+    if (state.guest != null) $('#guestScore').text(state.guest);
+    if (state.balls != null) $('#ballCount').text(state.balls);
+    if (state.strikes != null) $('#strikeCount').text(state.strikes);
+    if (state.out != null) $('#outCount').text(state.out);
+}
+
+function parseState(data) {
+    var state = typeof data === 'string' ? JSON.parse(data) : data;
+    if (typeof state === 'string') {
+        state = JSON.parse(state);
+    }
+    return state;
+}
+
+function fetchState() {
+    var url = apiBaseUrl + '/get/state';
+    $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: 'text',
+    })
+        .done(function(data) {
+            try {
+                applyState(parseState(data));
+            } catch (e) {
+                console.log('failed to parse state: ' + data);
+            }
+        })
+        .fail(function() {
+            console.log('failed to fetch state: ' + url);
+        });
+}
+
 function add(id, button) {
     var newCount = parseInt($(id).text()) + 1;
     if (!isNaN(newCount) && newCount >= 0) {
@@ -35,6 +70,12 @@ function updateScoreboard(id, newCount, button) {
             apiCall = "/set/strikes/" + newCount;
             break;
 
+        case '#nextbatterButton':
+            updateScoreboard('#ballCount', 0, button)
+            updateScoreboard('#strikeCount', 0, button)
+            apiCall = "/nextbatter";
+            break;
+
         case '#outCount':
             apiCall = "/set/outs/" + newCount;
             break;
@@ -58,6 +99,7 @@ function updateScoreboard(id, newCount, button) {
     $(button).css("pointerEvents","none");
     var oldText = $(button).text();
     var oldBackground = $(button).css('background-color');
+    console.log('oldBackground: ' + oldBackground);
     $(button).css('background-color', 'inherit');
     $(button).html('<div class="loader"></div>');
     $.ajax({
@@ -80,3 +122,5 @@ function updateScoreboard(id, newCount, button) {
             }
         });
 }
+
+fetchState();
