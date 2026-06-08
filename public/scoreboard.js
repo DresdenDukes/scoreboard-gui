@@ -85,6 +85,11 @@ function updateScoreboard(id, newCount, button) {
             break;
 
         case '#resetButton':
+            updateScoreboard('#ballCount', 0, button)
+            updateScoreboard('#strikeCount', 0, button)
+            updateScoreboard('#outCount', 0, button)
+            updateScoreboard('#homeScore', 0, button)
+            updateScoreboard('#guestScore', 0, button)
             apiCall = "/startgame"
             break;
 
